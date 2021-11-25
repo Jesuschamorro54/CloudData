@@ -1,12 +1,115 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Principal</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block titulo %} Cloud data {% endblock %}
+{% block bar_tittle %} Bienvenido a cloud data {% endblock %}
+{% block btn_menu %}Menu{% endblock %}
+{% block btn_exit %}Exit{% endblock %} 
+
+{% block contenido_1 %}
+<v-container fluid>
+  <v-row class="d-flex align-center" justify="center" no-gutters>
+    <v-col>
+      <v-col class="align-center">
+        <v-card-text class="text-h4 blue--text font-weight-bold">[Texto]</v-card-text>
+      </v-col>
+    </v-col>
+  </v-row>
+  <v-row class="d-flex align-center" justify="center">
+    <div>
+    <br>
+    <br>
+    <br>
+    </div>
+  </v-row>
+</v-container>
+{% endblock %}
+
+{% block contenido_2 %}
+<v-container fluid>
+  <v-row>
+    <v-divider></v-divider>
+  </v-row>
+  
+  <v-row class="align-center text-center px-3 py-3" justify="center">
+    <h2 class="justify">Mantenemos la organización de los datos de tus niños</h2>
+  </v-row>
+
+  <v-row class="align-center py-1 px-1" no-gutters justify="center">
+    <!--Card 1-->
+    <v-col cols="12" sm="6" md="4">
+      <v-card color="#EFEFEF" shaped class="mx-auto px-1 py-1" max-width="370">
+        <v-card class = "mx-auto" height="250px" style="padding: 5px; block-size: auto;" elevation = 0>
+            <v-img class="black--text align-end" height="200px" src="https://www.focusvision.com/wp-content/uploads/2017/08/0816-Cover-1-1.jpg">
+        </v-card>
+          <v-card-title>Visualización</v-card-title>
+        </v-img>
+        <v-card-subtitle class="pb-0">
+          Podras contar con 5 salones
+        </v-card-subtitle>
+
+        <v-card-text class="text--primary">
+          <div>Información detallada</div>
+          <div>Acceso a vido streaming, video bind, sonido, area de snaks, sillas comodas</div>
+        </v-card-text>
+
+        <v-card-actions>
+          <v-btn color="blue" text title="Explorar">Leer más</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
     
-</body>
-</html>
+    <!--Card 2-->
+    <v-col>
+      <v-card color="#EFEFEF" shaped class="mx-auto px-1 py-1" max-width="370">
+        <v-card class = "mx-auto" height="250px" style="padding: 5px; block-size: auto;" elevation = 0 style="padding-left: 80px;">
+            <v-img class="black--text align-end" height="200px" src="https://www.kindpng.com/picc/m/391-3916034_labelling-task-icon-check-mark-transparent-hd-png.png" style="width: 200px; height: 200px;">
+        </v-card>
+          <v-card-title>Información detallada</v-card-title>
+        </v-img>
+
+        <v-card-subtitle class="pb-0">
+          Cuenta con 40 Habitaciones y 10 Suites
+        </v-card-subtitle>
+
+        <v-card-text class="text--primary">
+          <div>Con todos los servicios</div>
+
+          <div>Multiple acomodación, doble, sencilla, familiar y grupos</div>
+        </v-card-text>
+
+        <v-card-actions>
+            <v-btn color="blue" text title="Explorar">Leer más</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+
+    <!--Card 3-->
+    <v-col>
+      <v-card color="#EFEFEF" shaped class="mx-auto px-1 py-1" max-width="370">
+        <v-card class = "mx-auto" height="250px" style="padding: 5px; block-size: auto;" elevation = 0>
+            <v-img class="black--text align-end" height="150px" src="https://www.cali.gov.co/gobierno/info/principal/media/pubInt/thumbs/thpub_700x400_144634.jpg">
+        </v-card>
+          <v-card-title>Sincronización de datos con el ICBF</v-card-title>
+        </v-img>
+
+        <v-card-subtitle class="pb-0">
+          Disponemos de 2 hermosas playas y piscinas
+        </v-card-subtitle>
+
+        <v-card-text class="text--primary">
+          <div>La apertura esta de 7 am y cierre 6 pm</div>
+
+          <div>Para eventos especiales solo hay que programarlos</div>
+        </v-card-text>
+
+        <v-card-actions>
+            <v-btn color="blue" text title="Explorar">Leer más</v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-row>
+  <v-row>
+    <v-divider></v-divider>
+  </v-row>
+</v-container>
+{% endblock %}
