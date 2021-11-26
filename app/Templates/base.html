@@ -6,6 +6,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/@mdi/font@4.x/css/materialdesignicons.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/functions.js') }}"></script>
     <title>{% block titulo %} {% endblock %}</title>
   </head>
   <body>
@@ -14,30 +15,46 @@
             <v-app-bar-nav-icon @click="drawer = !drawer" title="Menu"></v-app-bar-nav-icon>
             <v-toolbar-title shrink-on-scroll>{% block bar_tittle %} {% endblock %}</v-toolbar-title>
             <v-spacer></v-spacer>
-            <v-btn class="ma-2" elevation="8" outlined color="orange" title="DashBoard">
-                <v-icon class="md-2" left>mdi-cards-variant</v-icon>
-                {% block btn_menu %} {% endblock %}      
+            {% if is_login %}
+              <!--MENU-->
+              <v-btn class="ma-2" elevation="2" outlined color="orange" title="MENU">
+                  <v-icon class="md-2" left>mdi-cards-variant</v-icon>
+                  {% block btn_menu %}MENU{% endblock %}      
               </v-btn>
-              <v-btn class="ma-2" elevation="8" outlined color="orange" title="Acerca de">
-                <v-icon class="md-2" left>mdi-help-circle</v-icon>
-                Info
-            </v-btn>
 
-              <v-btn class="pd-2 ml-4" elevation="8" outlined title="Acceder" >
+              <!--INFO-->
+              <v-btn class="ma-2" elevation="2" outlined color="orange" title="Acerca de">
+                <v-icon class="md-2" left>mdi-help-circle</v-icon>Info
+              </v-btn>
+
+              <!--SALIR-->
+              <v-btn class="ma-2" elevation="2" outlined color="red" title="Salir" href="{{url_for('main.logout')}}">
+                <v-icon class="md-2" left>mdi-exit-to-app</v-icon>
+                {% block btn_exit %} {% endblock %}      
+              </v-btn>
+            {% else %}
+              <!--LOGIN-->
+              <v-btn class="pd-2 ml-4" outlined elevation="2"  title="Acceder" href="{{url_for('main.login')}}">
                 <v-icon class="md-2" left>mdi-account-circle</v-icon>
                 {% block btn_login %} Login {% endblock %}
               </v-btn>
-              <v-btn class="success pd-2 ml-4" elevation="8" outlined title="Registrar Usuario" >
+
+              <!--REGISTRARSE-->
+              <v-btn class="success pd-2 ml-4" elevation="2" outlined title="Registrar Usuario" href="{{url_for('main.register')}}">
                 <v-icon class="md-2" left>mdi-account-plus</v-icon>
                 {% block btn_signin %} Sign in{% endblock %}                
               </v-btn>
+            {% endif %}
+
             </v-app-bar>
             <v-main class="pt-9 mt-5">
-              <v-parallax height="600" src="https://plchldr.co/i/1280x1024?&bg=f0f8ff&text=f0f8ff%20hexcolor.co">
+              <v-parallax height="500" src="https://plchldr.co/i/1280x1024?&bg=f0f8ff&text=f0f8ff%20hexcolor.co">
                 <v-row class="d-flex align-center" justify="center">
                   <v-col class="align-center text-center">
                     <h1 class="text-h3 font-weight-bold black--text mb-4">
-                      Cloud data
+                      {% block sub_title %}
+        
+                      {% endblock %}
                     </h1>
                     {% block contenido_1 %}
         
@@ -63,16 +80,16 @@
             <v-footer dark padless elevation="5">
               <v-card flat tile class="indigo lighten-1 white--text text-center flex">
                 <v-card-text>
-                  <v-btn href="https://www.facebook.com/quantumsdata" title="Facebook" class="mx-4 white--text" icon>
+                  <v-btn href="https://www.facebook.com/" title="Facebook" class="mx-4 white--text" icon>
                     <v-icon size="24px">mdi-facebook</v-icon>
                   </v-btn>
-                  <v-btn href="https://twitter.com/quantumsdata" title="Twitter" class="mx-4 white--text" icon>
+                  <v-btn href="https://twitter.com/a" title="Twitter" class="mx-4 white--text" icon>
                     <v-icon size="24px">mdi-twitter</v-icon>
                   </v-btn>
-                  <v-btn href="https://www.linkedin.com/company/quantumsdata" title="LinkedIn" class="mx-4 white--text" icon>
+                  <v-btn href="https://www.linkedin.com/" title="LinkedIn" class="mx-4 white--text" icon>
                     <v-icon size="24px">mdi-linkedin</v-icon>
                   </v-btn>
-                  <v-btn href="https://www.instagram.com/quantumsdata" title="Instagram" class="mx-4 white--text" icon>
+                  <v-btn href="https://www.instagram.com/" title="Instagram" class="mx-4 white--text" icon>
                     <v-icon size="24px">mdi-instagram</v-icon>
                   </v-btn>
                 </v-card-text>
@@ -97,6 +114,12 @@
           el: '#app',
           vuetify: new Vuetify(),
           data: () => ({
+            items: [
+              { title: 'Click Me' },
+              { title: 'Click Me' },
+              { title: 'Click Me' },
+              { title: 'Click Me 2' },
+            ],
           }),
         })
       </script>
