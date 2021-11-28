@@ -1,0 +1,120 @@
+{% extends 'base2.html' %}
+{% block titulo %} Ver registros {% endblock %}
+{% block bar_tittle %} Lista de registros {% endblock %}}
+
+{% block contenido_1 %}
+<v-row class="mx-auto py-10" justify="center">
+    <v-card class="align-center pr-4" height="250" width="750" elevation=3>
+        <v-card-title>Buscar de información</v-card-title> 
+        <v-card-text>
+            <v-row class="d-flex align-center pt-2" justify="space-around">
+                <v-col>
+                    <v-col>
+                        <v-text-field id="search" append-icon="mdi-magnify" label="Buscar usuarios" clearable ></v-text-field>
+                    </v-col>
+                    <v-col>
+                        <v-card-actions>
+                            <input type="hidden" id="table" value="users">
+                            <input type="hidden" id="route" value="/adm/users/">
+                            <v-btn color="orange" elevation=1 outlined text onclick="search()">Buscar</v-btn>
+                            <v-btn color="gray" elevation=1  outlined text onclick="clear_all()">Limpiar</v-btn>                                                                      
+                            <v-btn color="green" elevation=1 outlined onclick="search('all')" >Todos</v-btn>
+                        </v-card-actions>
+                    </v-col>  
+                </v-col>
+                <v-car class="align-center pb-13">
+                    <v-select solo :items="['No. Registro', 'Identificación', 'Nombre','Email']" label="Buscar por..."></v-text-field>
+                </v-car>
+            </v-row>
+        </v-card-text>
+    </v-card>
+</v-row>
+{% endblock %}
+
+{% block contenido_2 %}
+
+<template>
+    <!--Linea separador-->
+    <v-row>
+        <v-divider></v-divider> 
+    </v-row>
+    <v-row>
+        <h3><br></h3>
+    </v-row>
+
+    <!--Titulo-->
+    <v-row class="d-flex align-center" justify="space-around"> 
+        <h2 class="justify">Beneficiarios</h2> 
+    </v-row>
+    <v-row>
+        <v-divider></v-divider>
+    </v-row>
+
+    <!--Contenedor de datos-->
+    <v-row id= "content_users" class="d-flex align-center" justify="space-around">
+        <template>
+            <v-simple-table>
+              <template v-slot:default>
+                    <thead>
+                        <input id="table" type="hidden" value="reservas">
+                      <tr>
+                        <th class="text-left" style="font-size:1.1em">Identificacion</th>
+                        <th class="text-left" style="font-size:1.1em">Nombre</th>
+                        <th class="text-left" style="font-size:1.1em">Edad</th>
+                        <th class="text-left" style="font-size:1.1em">Fecha de nacimiento</th>
+                        <th class="text-left" style="font-size:1.1em">Tipo</th>
+                        <th class="text-left" style="font-size:1.1em">Sexo</th>
+                        <th class="text-left" style="font-size:1.1em">Telefono</th>
+                        <th class="text-left" style="font-size:1.1em">Modalidad</th>
+                        <th class="text-left" style="font-size:1.1em">id-acudiente</th>
+                        <th class="text-left" style="font-size:1.1em">Nombre-Acudiente</th>
+                        <th class="text-left" style="font-size:1.1em">ID-Hogar</th>
+                        <th class="text-left" style="font-size:1.1em">Hogar</th>
+                        
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {%for reserva in reserva_list%}
+                      <tr>
+                        <td>{{ reserva[0]}}</td>
+                        <td>{{ reserva[1]}}</td>
+                        <td>{{ reserva[2]}}</td>
+                        <td>{{ reserva[3]}}</td>
+                        <td>{{ reserva[4]}}</td>
+                        <td>{{ reserva[5]}}</td>
+                        <td>{{ reserva[0]}}</td>
+                        <td>{{ reserva[1]}}</td>
+                        <td>{{ reserva[2]}}</td>
+                        <td>{{ reserva[3]}}</td>
+                        <td>{{ reserva[4]}}</td>
+                        <td>{{ reserva[5]}}</td>
+                        <td>
+                            <v-btn id="{{reserva[0]}}" depressed plain color="green" elevation="0" fab x-small dark onclick="confirm_check( {{reserva[0]}} )">
+                                <v-icon>mdi-open-in-new</v-icon>
+                            </v-btn>
+                        </td>
+                        <td>
+                            <v-btn id="{{reserva[0]}}" depressed plain color="red" elevation="0" fab x-small dark onclick="delete_check( {{reserva[0]}} )">
+                                <v-icon>mdi-cancel</v-icon>
+                            </v-btn>
+                        </td>
+                      </tr>
+                    {% endfor %}
+                    </tbody>
+              </template>
+            </v-simple-table>
+          </template>
+    </v-row>
+    <v-row>
+        <v-divider></v-divider>
+    </v-row>
+</template> 
+{% endblock %}
+
+{% block contenido_3 %}
+    <v-card height=100></v-card>
+{% endblock %}
+
+
+{% block text_footer_01 %} Todas las marcas comerciales y registradas que aparecen aqui, son propiedad de sus respectivos dueños. {% endblock %}
+{% block text_footer_02 %} Cloud data - Atencion sin Igual - Todos los derechos reservados.{% endblock %}

@@ -1,15 +1,13 @@
 {% extends 'base.html' %}
 {% block titulo %} Cloud data {% endblock %}
 {% block bar_tittle %} Bienvenido a cloud data {% endblock %}
-{% block btn_menu %}Menu{% endblock %}
-{% block btn_exit %}Exit{% endblock %} 
 
 {% block contenido_1 %}
 <v-container fluid >
   <v-row class="d-flex align-center" justify="center" no-gutters>
     <v-col>
       <v-col class="align-center">
-        <v-card-text class="text-h4 blue--text font-weight-bold">[Texto]</v-card-text>
+        <v-card-text class="text-h4 blue--text font-weight-bold">Cloud data</v-card-text>
       </v-col>
     </v-col>
   </v-row>
@@ -112,5 +110,60 @@
   </v-row>
 </v-container>
 {% endblock %}
+
+{% block contenido_3 %}
+<v-container fluid>
+  <v-row>
+    <v-divider></v-divider>
+  </v-row>
+
+  <v-row id="seccion_reservas" class="align-center text-center px-3 py-3" justify="center">
+    <h2 class="justify">Información adiccional</h2>
+  </v-row>
+
+  <v-card class="mx-auto my-10" elevation="1" max-width="900">
+    <template slot="progress">
+      <v-progress-linear color="deep-purple" height="10" indeterminate title="Procesando"></v-progress-linear>
+    </template>
+    <v-row class="d-flex align-center py-2 pl-3 pr-2">
+      <v-col>
+        <v-img position="center center" max-height="250" max-width="220" src="https://www.icbf.gov.co/sites/default/files/icbf-logo.png"></v-img>
+      </v-col>
+      <v-col cols="12" sm="6" md="4">
+        <p class="text-subtitle-1 font-weight-bold pl-2">[Ingresar texto]</p>
+          <v-container class="grey lighten-5">
+            <v-row no-gutters>
+              <v-col>
+                <v-card class="pa-10" outlined tile max-width="200">
+                  <div>* Item 1</div>
+                  <div>* Item 2</div>
+                  <div>* Item 3</div>
+                  <div>* Item 4</div>
+                  <div>* Item 5</div>
+                </v-card>
+              </v-col>
+            </v-row>
+          </v-container>
+
+      </v-col>
+    </v-row>
+    <v-container class="grey lighten-4 body-2" fluid>
+      <v-card-title>Accede como un usuario afiliado</v-card-title>
+        <v-card-text>  
+          <v-row class="d-flex align-center py-2 px-10" justify="center">
+            <v-card class="mx-auto" max-height="50" max-width="230">
+              <v-card-actions>
+                <v-btn class="align-center" text color="amber darken-4"  width="200" href="">Ver mis datos</v-btn>
+              </v-card-actions>
+            </v-card>
+          </v-row>
+        </v-card-text>
+    </v-container>
+    
+  </v-card>
+</v-container> 
+{% endblock %}
+
+
 {% block text_footer_01 %} Todas las marcas comerciales y registradas que aparecen aqui, son propiedad de sus respectivos dueños. {% endblock %}
 {% block text_footer_02 %} Cloud data - Atencion sin Igual - Todos los derechos reservados.{% endblock %}
