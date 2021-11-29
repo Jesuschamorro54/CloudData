@@ -1,0 +1,69 @@
+{% extends 'base2.html' %}
+{% block titulo %} Ver registros {% endblock %}
+{% block bar_tittle %} Lista de registros {% endblock %}}
+
+{% block contenido_1 %}
+<v-row class="mx-auto py-10" justify="center">
+    <v-card class="align-center pr-4" height="250" width="750" elevation=3>
+        <v-card-title>Buscar de información</v-card-title> 
+        <v-card-text>
+            <v-row class="d-flex align-center" justify="space-around">
+                <v-col>
+                    <v-col>
+                        <v-text-field id="search" append-icon="mdi-magnify" label="Buscar registros" clearable ></v-text-field>
+                    </v-col>
+                </v-col>
+                <v-car class="align-center">
+                    <v-select solo :items="['No. Registro', 'Beneficiario', 'Nombre','Telefono']" label="Buscar por..."></v-text-field>
+                </v-car>
+            </v-row>
+        </v-card-text>
+        <v-card-actions>                                                                     
+            <v-btn color="green" elevation=1 outlined onclick="search('all')" >Sincronizar datos selecionados</v-btn>
+        </v-card-actions>
+    </v-card>
+</v-row>
+{% endblock %}
+
+{% block contenido_2 %}
+
+<template>
+    <!--Linea separador-->
+    <v-row>
+        <v-divider></v-divider> 
+    </v-row>
+    <v-row>
+        <h3><br></h3>
+    </v-row>
+
+    <!--Titulo-->
+    <v-row class="d-flex align-center" justify="space-around"> 
+        <h2 class="justify">Lista de registros</h2> 
+    </v-row>
+    <v-row>
+        <v-divider></v-divider>
+    </v-row>
+
+    <!--Contenedor de datos-->
+    <v-row id= "content_users" class="d-flex align-center" justify="space-around">
+        <v-data-table  
+            v-model="selected" 
+            :headers="headers" 
+            :items="registros" 
+            item-key="number" 
+            show-select class="elevation-1">
+        </v-data-table>
+    </v-row>
+    <v-row>
+        <v-divider></v-divider>
+    </v-row>
+</template> 
+{% endblock %}
+
+{% block contenido_3 %}
+    <v-card height=100></v-card>
+{% endblock %}
+
+
+{% block text_footer_01 %} Todas las marcas comerciales y registradas que aparecen aqui, son propiedad de sus respectivos dueños. {% endblock %}
+{% block text_footer_02 %} Cloud data - Atencion sin Igual - Todos los derechos reservados.{% endblock %}

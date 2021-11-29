@@ -1,0 +1,83 @@
+{% extends 'base2.html' %}
+{% block titulo %} Editar registro {% endblock %}
+{% block bar_tittle %} Ingresar un nuevo beneficiario {% endblock %}}
+
+{% block sub_title %}
+    Puede agregar el registro de un nuevo beneficiario aquí debajo        
+{% endblock %}
+
+{% block contenido_2 %}
+<v-container class="mt-5">
+    <v-main class="pt-0">
+     <!-- USUARIOS -->
+        <v-card class="mx-auto my-1" flap elevation=0 max-width="750">
+            <v-card-text>
+               <template>
+                <v-form ref="form" v-model="valid" lazy-validation>
+                    <v-card class="mt-5"flap elevation=0 height=50><h2>Información del beneficiario</h1></v-card>
+                    <v-row>
+                        <v-col><v-text-field :counter="100" label="Name" required></v-text-field></v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col><v-select label="Genero" :items="['Masculino','Femenino',]" required></v-select></v-col>
+                        <v-col><v-text-field number :counter="2" label="Edad" required></v-text-field></v-col>
+                        <v-col><v-select label="Tipo de documento" :items="['TI','CC','Registro civil']" required></v-select></v-col>
+                        <v-col><v-text-field number :counter="10" label="No. documento" required></v-text-field></v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col><v-select label="Tipo de beneficiario" :items="['Item 1','Item 2','Item 3']" required></v-select></v-col>
+                        <v-col><v-select label="Modalidad" :items="['Item 1','Item 2','Item 3']" required></v-select></v-col>
+                        <v-col><v-text-field label="Address" required></v-text-field></v-col>
+                        <v-col><v-text-field label="Telefono" required></v-text-field></v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col><v-text-field label="Fecha de nacimiento" type="date" required></v-select></v-col>
+                        <v-col><v-select label="Contratista" :items="['Item 1','Item 2','Item 3']" required></v-select></v-col>
+                        <v-col><v-select label="No. Contrato" :items="['Item 1','Item 2','Item 3']" required></v-select></v-col>  
+                        <v-col><v-text-field label="Hogar" required></v-text-field></v-col>                      
+                    </v-row>
+                    <v-card class="mt-5"flap elevation=0 height=50><v-divider></v-divider><br><h2>Información adicional</h1></v-card>
+                    <v-row>
+                        <v-col><v-text-field label="País de nacimiento" required></v-text-field></v-col>
+                        <v-col><v-text-field label="Departamento" required></v-text-field></v-col>
+                        <v-col><v-text-field label="Municipio" required></v-text-field></v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col><v-text-field label="Departamento residente" required></v-text-field></v-col>
+                        <v-col><v-text-field label="Dirección residente" required></v-text-field></v-col>
+                        <v-col><v-text-field type="date" label="Fecha atención UDS" required></v-text-field></v-col>
+                    </v-row>
+                    <v-card class="mt-5"flap elevation=0 height=50><v-divider></v-divider><br><h2>Información del acudiente</h1></v-card>
+                    <v-row>
+                        <v-col><v-text-field label="Nombre del acudiente" required></v-text-field></v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col><v-select label="Tipo de documento" :items="['TI','CC','Registro civil']" required></v-select></v-col>
+                        <v-col><v-select label="Tipo de acudiente" :items="['Item 1','Item 2','Item 3']" required></v-select></v-col>  
+                        <v-col><v-text-field label="Id-Acudiente" required></v-text-field></v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col><v-text-field number :counter="2" label="Edad" required></v-text-field></v-col>
+                        <v-col><v-text-field label="Grupo étnico " required></v-text-field></v-col>
+                        <v-col><v-text-field label="Posgrado" required></v-text-field></v-col>
+                        <v-col><v-text-field label="Universidad" required></v-text-field></v-col>
+                    </v-row>
+                    <v-row>
+                        <v-col><v-text-field label="Eps Afiliada" required></v-text-field></v-col>
+                        <v-col><v-text-field label="ARL afiliado" required></v-text-field></v-col>
+                        <v-col><v-text-field label="Pensión" required></v-text-field></v-col>
+                    </v-row>
+
+                    <v-btn color="success" class="mr-4"onclick="edit()" >Confirmar</v-btn>
+                </v-form>
+               </template>
+            </v-card-text>
+        </v-card>
+    </v-main>
+</v-container>
+
+{% endblock %}
+
+{% block text_footer_01 %} Todas las marcas comerciales y registradas que aparecen aqui, son propiedad de sus respectivos dueños. {% endblock %}
+{% block text_footer_02 %} Cloud data Demo - Atencion sin Igual - Todos los derechos reservados.{% endblock %}
+

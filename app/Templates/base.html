@@ -40,11 +40,11 @@
                   <v-list>
                     <v-list-item class="px-2">
                       <v-list-item-avatar>
-                        <v-img src="https://acortar.link/NfF4dy"></v-img>
+                        <v-img src="https://randomuser.me/api/portraits/women/85.jpg"></v-img>
                       </v-list-item-avatar>
                       <v-list-item-title>{{session['usr_name']}}</v-list-item-title>
 
-                      <v-btn icon small fab><v-icon>mdi-account-cog</v-icon></v-btn>
+                      <v-btn icon small fab href="{{url_for('main.cog_users')}}"><v-icon>mdi-account-cog</v-icon></v-btn>
                       <v-btn icon @click.stop="mini = !mini"><v-icon>mdi-chevron-left</v-icon></v-btn>
                     </v-list-item>
                 </v-navigation-drawer>
@@ -75,13 +75,13 @@
                 <!--USUARIO ADMIN-->
                 {% if g.is_admin%}
                 <v-list-item>
-                    <v-btn color="indigo" outlined height="60" width="250" elevation="0" href="" title="Administrar Reservas">
+                    <v-btn color="indigo" outlined height="60" width="250" elevation="0" href="{{url_for('main.users')}}" title="Administrar Reservas">
                         <v-icon class="pr-1">mdi-account-cog</v-icon>Administrar usuarios
                     </v-btn>
                 </v-list-item>
       
                 <v-list-item>
-                    <v-btn color="indigo" outlined height="60" width="250" elevation="0" href="" title="Administrar Reservas">
+                    <v-btn color="indigo" outlined height="60" width="250" elevation="0" href="{{url_for('main.sync_info')}}" title="Administrar Reservas">
                     <v-icon class="pr-1">mdi-cloud-sync</v-icon>Sincronizar</v-btn>
                 </v-list-item>
                 {% endif %}
@@ -89,12 +89,12 @@
                 <!--USUARIO SUPERVISOR O MADRES-->
                 {% if g.is_admin or g.is_moder %}
                 <v-list-item>
-                    <v-btn class="pr-2" color="indigo" outlined height="60" width="250" elevation="0" href="" title="Administrar Seguridad">
+                    <v-btn class="pr-2" color="indigo" outlined height="60" width="250" elevation="0" href="{{url_for('main.edit')}}" title="Administrar Seguridad">
                     <v-icon class="pr-1">mdi-pencil</v-icon>Editar registros</v-btn>
                 </v-list-item>
       
                 <v-list-item>
-                    <v-btn color="indigo" outlined height="60" width="250" elevation="0" href="" title="Administrar Reservas">
+                    <v-btn color="indigo" outlined height="60" width="250" elevation="0" href="{{url_for('main.add')}}" title="Administrar Reservas">
                     <v-icon class="pr-1">mdi-playlist-plus</v-icon>Nevos beneciciarios</v-btn>
                 </v-list-item>
                 {% endif %}
@@ -110,12 +110,12 @@
           </v-navigation-drawer>
 
             <v-main class="pt-9 mt-5">
-              <v-parallax height="500" src="https://plchldr.co/i/1280x1024?&bg=f0f8ff&text=f0f8ff%20hexcolor.co">
+              <v-parallax height="500" src="https://www.techedgegroup.com/hubfs/DE%20-%202020%20-%20Images/SAP%20Cloud%20Platform%20Integration.jpg">
                 <v-row class="d-flex align-center" justify="center">
                   <v-col class="align-center text-center">
-                    <h1 class="text-h3 font-weight-bold black--text mb-4">
+                    <h1 class="text-h3 font-weight-bold white--text mb-4">
                       {% block sub_title %}
-        
+                        
                       {% endblock %}
                     </h1>
                     {% block contenido_1 %}
@@ -185,6 +185,7 @@
               { title: 'Click Me' },
               { title: 'Click Me' },
             ],
+
           }),
           watch: {
           group () {

@@ -79,3 +79,98 @@ def registros():
     ]
     return render_template('registros.html', reserva_list = info)
 
+
+@main.route('/editar')
+@login_required
+def edit():
+    is_rol = session.get('usr_rol')
+    g.is_admin = True if is_rol=='admin'else False
+    g.is_moder = True if is_rol=='moderador' else False
+    g.is_free = True if is_rol=='free' else False
+
+    info = [
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+    ]
+    return render_template('edit.html', reserva_list = info)
+
+@main.route('/adm/users')
+@login_required
+def users():
+    is_rol = session.get('usr_rol')
+    g.is_admin = True if is_rol=='admin'else False
+    g.is_moder = True if is_rol=='moderador' else False
+    g.is_free = True if is_rol=='free' else False
+
+    info = [
+        ['1002159985', 'Jesus felipe','jesusfeli54@gmail.com', 'Lider', 'https://icon-library.com/images/users-icon-png/users-icon-png-15.jpg',],
+        ['1002159985', 'Jesus felipe','jesusfeli54@gmail.com', 'Lider', 'https://icon-library.com/images/users-icon-png/users-icon-png-15.jpg',],
+        ['1002159985', 'Jesus felipe','jesusfeli54@gmail.com', 'Lider', 'https://icon-library.com/images/users-icon-png/users-icon-png-15.jpg',],
+        ['1002159985', 'Jesus felipe','jesusfeli54@gmail.com', 'Lider', 'https://icon-library.com/images/users-icon-png/users-icon-png-15.jpg',],
+        ['1002159985', 'Jesus felipe','jesusfeli54@gmail.com', 'Lider', 'https://icon-library.com/images/users-icon-png/users-icon-png-15.jpg',],
+        ['1002159985', 'Jesus felipe','jesusfeli54@gmail.com', 'Lider', 'https://icon-library.com/images/users-icon-png/users-icon-png-15.jpg',],
+    ]
+    return render_template('admin/users.html', users_list = info)
+
+@main.route('/config/users')
+@login_required
+def cog_users():
+    is_rol = session.get('usr_rol')
+    g.is_admin = True if is_rol=='admin'else False
+    g.is_moder = True if is_rol=='moderador' else False
+    g.is_free = True if is_rol=='free' else False
+    return render_template('config/c_users.html')
+
+@main.route('/config/registro')
+@login_required
+def cog_register():
+    is_rol = session.get('usr_rol')
+    g.is_admin = True if is_rol=='admin'else False
+    g.is_moder = True if is_rol=='moderador' else False
+    g.is_free = True if is_rol=='free' else False
+    return render_template('config/c_registros.html')
+
+@main.route('/añadir-registro/')
+@login_required
+def add():
+    is_rol = session.get('usr_rol')
+    g.is_admin = True if is_rol=='admin'else False
+    g.is_moder = True if is_rol=='moderador' else False
+    g.is_free = True if is_rol=='free' else False
+    return render_template('/agregar.html')
+
+@main.route('/adm/sincronizar/')
+@login_required
+def sync_info():
+    is_rol = session.get('usr_rol')
+    g.is_admin = True if is_rol=='admin'else False
+    g.is_moder = True if is_rol=='moderador' else False
+    g.is_free = True if is_rol=='free' else False
+    info = [
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+        ['1002159985', 'Jesus felipe', 19, '2002-30-06', 'Normal', 'Masculino', '3002181326', 'normal', '32823914', 'Hortencia', '55', 'Los sueños'],
+    ]
+    
+    return render_template('admin/sync.html', reserva_list = info)

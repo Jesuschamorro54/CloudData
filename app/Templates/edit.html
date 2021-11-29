@@ -55,21 +55,24 @@
         <template>
             <v-simple-table>
               <template v-slot:default>
-                    <thead>
+                    <thead class="elevation-1 deep-purple lighten-3">
                         <input id="table" type="hidden" value="reservas">
                       <tr>
                         <th class="text-left" style="font-size:1.1em">Identificacion</th>
                         <th class="text-left" style="font-size:1.1em">Nombre</th>
                         <th class="text-left" style="font-size:1.1em">Edad</th>
-                        <th class="text-left" style="font-size:1.1em">Fecha de nacimiento</th>
+                        <th class="text-left" style="font-size:1.1em">Nacimiento</th>
                         <th class="text-left" style="font-size:1.1em">Tipo</th>
                         <th class="text-left" style="font-size:1.1em">Sexo</th>
                         <th class="text-left" style="font-size:1.1em">Telefono</th>
                         <th class="text-left" style="font-size:1.1em">Modalidad</th>
                         <th class="text-left" style="font-size:1.1em">id-acudiente</th>
-                        <th class="text-left" style="font-size:1.1em">Nombre-Acudiente</th>
+                        <th class="text-left" style="font-size:1.1em">Acudiente</th>
                         <th class="text-left" style="font-size:1.1em">ID-Hogar</th>
                         <th class="text-left" style="font-size:1.1em">Hogar</th>
+                        
+                        <th class="text-left" style="font-size:0.8em">Editar</th>
+                        <th class="text-left" style="font-size:0.8em">Borrar</th>
                         
                       </tr>
                     </thead>
@@ -88,6 +91,16 @@
                         <td>{{ reserva[9]}}</td>
                         <td>{{ reserva[10]}}</td>
                         <td>{{ reserva[11]}}</td>
+                        <td>
+                            <v-btn id="{{reserva[0]}}" depressed plain color="green" elevation="0" fab x-small dark href="{{url_for('main.cog_register')}}">
+                                <v-icon>mdi-open-in-new</v-icon>
+                            </v-btn>
+                        </td>
+                        <td>
+                            <v-btn id="{{reserva[0]}}" depressed plain color="red" elevation="0" fab x-small dark onclick="">
+                                <v-icon>mdi-delete</v-icon>
+                            </v-btn>
+                        </td>
                       </tr>
                     {% endfor %}
                     </tbody>

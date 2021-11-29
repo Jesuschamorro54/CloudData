@@ -1,0 +1,81 @@
+{% extends 'base2.html' %}
+{% block titulo %} Ver registros {% endblock %}
+{% block bar_tittle %} Lista de registros {% endblock %}}
+
+{% block contenido_1 %}
+<v-row class="mx-auto py-10" justify="center">
+    <v-card class="align-center pr-4" height="250" width="750" elevation=3>
+        <v-card-title>Buscar de información</v-card-title> 
+        <v-card-text>
+            <v-row class="d-flex align-center pt-2" justify="space-around">
+                <v-col>
+                    <v-col>
+                        <v-text-field id="search" append-icon="mdi-magnify" label="Buscar usuarios" clearable ></v-text-field>
+                    </v-col>
+                    <v-col>
+                        <v-card-actions>
+                            <input type="hidden" id="table" value="users">
+                            <input type="hidden" id="route" value="/adm/users/">
+                            <v-btn color="orange" elevation=1 outlined text onclick="search()">Buscar</v-btn>
+                            <v-btn color="gray" elevation=1  outlined text onclick="clear_all()">Limpiar</v-btn>                                                                      
+                            <v-btn color="green" elevation=1 outlined onclick="search('all')" >Todos</v-btn>
+                        </v-card-actions>
+                    </v-col>  
+                </v-col>
+                <v-car class="align-center pb-13">
+                    <v-select solo :items="['Rol', 'Identificación', 'Nombre','Email']" label="Buscar por..."></v-text-field>
+                </v-car>
+            </v-row>
+        </v-card-text>
+    </v-card>
+</v-row>
+{% endblock %}
+{% block contenido_2 %}
+<template>
+    <!--Linea separador-->
+    <v-row>
+        <v-divider></v-divider> 
+    </v-row>
+    <!--Titulo-->
+    <v-row class="d-flex align-center px-2 py-2" justify="space-around"> 
+        <h2 class="justify">Usuarios</h2> 
+    </v-row>
+    <!--Contenedor de datos-->
+    <v-row id="content" class="d-flex align-center" justify="space-around">
+        {% for user in users_list %}
+        <v-col>
+            <v-card class="mx-auto" width="300">
+                <v-card class = "mx-auto" height="250px" style="padding: 5px; block-size: auto;" elevation = 0>
+                    <v-img class="black--text align-end" src="{{user[4]}}"></v-img>
+                </v-card>
+                <v-divider></v-divider>
+                <v-card-title style="padding: 2px 10px;">{{user[1]}}</v-card-title>
+                <v-divider></v-divider>
+
+                <!--Parametros -->
+                <input id="id" type="hidden" value="{{user[0]}}">
+                <input id="table" type="hidden" value="users">
+                <!-- Fin parametros -->
+
+                <v-card-subtitle name = "{{user[0]}}" class="pb-0" style="padding: 2px 15px;">
+                  Id: {{user[0]}}
+                </v-card-subtitle>
+            
+                <v-card-text class="text--primary">
+                  <div><b>Rol: </b>{{user[3]}}</div>
+                  <div><b>Email: </b>{{user[2]}}</div>
+                </v-card-text>
+
+                <v-btn color="green"dark text href="{{url_for('main.cog_users')}}">Configurar</v-btn>
+            </v-card>
+        </v-col>
+        {% endfor %}
+    </v-row>
+        <v-row>
+            <v-divider></v-divider>
+        </v-row>
+</template>
+{% endblock %}
+{% block text_footer_01 %} Todas las marcas comerciales y registradas que aparecen aqui, son propiedad de sus respectivos dueños. {% endblock %}
+{% block text_footer_02 %} Hotel Demo - Atencion sin Igual - Todos los derechos reservados.{% endblock %}
+
